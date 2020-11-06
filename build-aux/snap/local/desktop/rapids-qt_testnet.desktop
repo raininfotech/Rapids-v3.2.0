@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Rapids
+Comment=Rapids QT test network
+GenericName=Rapids Digital Currency QT client testnet network
+Exec=rapids-core.qt-testnet %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/rapids_testnet.png
+MimeType=x-scheme-handler/rpd;
+Categories=X-Office;X-Finance;
+Keywords=internet;rapids;zrpd;tbc;core;wallet;qt;testnet;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Version=1.0

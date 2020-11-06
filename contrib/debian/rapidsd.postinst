@@ -1,0 +1,28 @@
+
+#!/bin/sh
+
+# setup rapids account, homedir etc
+
+set -e
+
+RPDUSER="rapids"
+RPDHOME="/var/lib/rapids"
+
+if [ "$1" = "configure" ]; then
+	# Add rapids user/group - this will gracefully abort if the user already exists.
+	# A homedir is never created.
+	set +e
+	adduser --system --home "${RPDHOME}" --no-create-home --group "${RPDUSER}" 2>/dev/null
+	set -e
+
+	# If the homedir does not already exist, create it with proper
+	# ownership and permissions.
+	if [ ! -d "${RPDHOME}" ]; then
+		mkdir -m 0750 -p "${RPDHOME}"
+		chown "${RPDUSER}:${RPDUSER}" "${RPDHOME}"
+	fi
+fi
+
+#DEBHELPER#
+
+exit 0
